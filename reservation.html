@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation</title>
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header>
+    <h1>Réservez votre place</h1>
+    <p>Complétez le formulaire ci-dessous pour participer au dîner des noces.</p>
+  </header>
+  <main>
+    <form id="reservation-form">
+      <label for="name">Nom complet :</label>
+      <input type="text" id="name" name="name" placeholder="Votre nom" required>
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+      <label for="phone">Téléphone :</label>
+      <input type="tel" id="phone" name="phone" placeholder="Votre numéro" required>
+
+      <label for="status">Statut :</label>
+      <select id="status" name="status" required>
+        <option value="" disabled selected>Choisissez...</option>
+        <option value="single">Célibataire</option>
+        <option value="couple">En couple</option>
+      </select>
+
+      <button type="submit">Valider la réservation</button>
+    </form>
+  </main>
+  <footer>
+    <address>
+    <p>Contactez-nous pour toute question : <a href="tel:+2250777091843"> +225 07 77 09 18 43</a></p>
+  </address>
+  </footer>
+
+  <script>
+    document.getElementById("reservation-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  const data = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    status: formData.get("status"),
+  };
+//AKfycbxm_RiOoqm__sZjay4piTGVqUzRA9jUKItPi1GjtITPe7Grd-fMQV_8lDSYG8NeeumG
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbwzoyZRoaenPqDa3-MDAlnFh_lilDnhat_uYwSpqizN2JJl1uBbLAm7AW-Pu_IjiFoXxg/exec", {
+      method: "POST",
+      mode: "no-cors", // Ajout de ce mode
+      body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+    });
+
+    alert("Réservation réussie !");
+  } catch (error) {
+    alert("Erreur réseau : " + error.message);
+  }
+});
+
+  </script>
+</body>
+</html>

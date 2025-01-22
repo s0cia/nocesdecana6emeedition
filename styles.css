@@ -1,0 +1,129 @@
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient( #9b0720, #0c0909);
+  color: white;
+  text-align: center;
+}
+
+header {
+  padding: 30px 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideDown 1.5s ease-in-out;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+label {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+input, select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid white;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #ff4060;
+  box-shadow: 0 0 10px rgba(255, 64, 96, 0.7);
+  outline: none;
+}
+
+
+button {
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  background: #ff4060;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ff6075;
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+@media (max-width: 768px) {
+  main {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
